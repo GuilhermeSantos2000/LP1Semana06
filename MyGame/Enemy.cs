@@ -70,6 +70,19 @@ namespace MyGame
                     shield = 100;
                 }
             }
+
+            powerUpCount++;
+        }
+
+        private static int powerUpCount;
+        static Enemy()
+        {
+            powerUpCount = 0;
+        }
+
+        public static int GetPowerUpCount()
+        {
+            return powerUpCount;
         }
     }
 }
