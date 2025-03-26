@@ -20,6 +20,7 @@ namespace MyGame
             foreach (Enemy enemy in enemies)
             {
                 Console.WriteLine($"{enemy.GetName()} {enemy.GetHealth()} {enemy.GetShield()}");
+                Console.WriteLine($"{Enemy.GetPowerUpCount()}");
             }
         }
     }
