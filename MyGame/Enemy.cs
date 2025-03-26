@@ -31,5 +31,13 @@ namespace MyGame
                 if (health < 0) health = 0;
             }
         }
+
+        public float GetHealth()
+        {
+        }
+
+        public float GetShield()
+        {
+        }
     }
 }
