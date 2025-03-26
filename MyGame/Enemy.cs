@@ -51,5 +51,25 @@ namespace MyGame
             }
             name = ShortenedName;
         }
+
+        public void PickupPowerUp(PowerUp powerUp, float value)
+        {
+            if (powerUp == PowerUp.Health)
+            {
+                health += value;
+                if (health > 100)
+                {
+                    health = 100;
+                }
+            }
+            else if (powerUp == PowerUp.Shield)
+            {
+                shield += value;
+                if (shield > 100)
+                {
+                    shield = 100;
+                }
+            }
+        }
     }
 }
