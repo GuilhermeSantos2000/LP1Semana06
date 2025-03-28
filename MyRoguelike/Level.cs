@@ -1,5 +1,6 @@
 ﻿using System;
 using Humanizer;
+using System.Globalization;
 
 namespace MyRoguelike
 {
@@ -8,11 +9,11 @@ namespace MyRoguelike
         private int numberOfRooms;
         private Toughness difficulty;
         private Enemy[] enemiesInRooms;
-
         public Level(int numberOfRooms, Toughness difficulty)
         {
             this.numberOfRooms = numberOfRooms;
             this.difficulty = difficulty;
+            enemiesInRooms = new Enemy[numberOfRooms];
         }
 
         public void SetEnemyInRoom(int roomIndex, Enemy enemy)
@@ -45,13 +46,12 @@ namespace MyRoguelike
 
         public void PrintEnemies()
         {
-            Console.WriteLine("\nEnemies in the level:");
             for (int i = 0; i < numberOfRooms; i++)
             {
                 if (enemiesInRooms[i] != null)
                 {
-                    string roomNumberInWords = (i + 1).ToWords().Transform(To.TitleCase); // Convert room number to words and capitalize
-                    Console.WriteLine($"Room {roomNumberInWords}: {enemiesInRooms[i].GetName()}");
+                    string roomNumberInWords = i.ToOrdinalWords(new CultureInfo("en")).Transform(To.TitleCase);
+                    Console.WriteLine($"{roomNumberInWords} room: {enemiesInRooms[i].GetName()}");
                 }
             }
         }

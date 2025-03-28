@@ -45,7 +45,7 @@ namespace MyRoguelike
         public void SetName(string newName)
         {
            string ShortenedName = "";
-            for (int i = 0; i < newName.Length && i < 8; i++)
+            for (int i = 0; i < newName.Length && i < 50; i++)
             {
                 ShortenedName += newName[i];
             }
