@@ -1,4 +1,5 @@
 ﻿using System;
+using Humanizer;
 
 namespace MyRoguelike
 {
@@ -40,6 +41,19 @@ namespace MyRoguelike
                 }
             }
             return numEnemies;
+        }
+
+        public void PrintEnemies()
+        {
+            Console.WriteLine("\nEnemies in the level:");
+            for (int i = 0; i < numberOfRooms; i++)
+            {
+                if (enemiesInRooms[i] != null)
+                {
+                    string roomNumberInWords = (i + 1).ToWords().Transform(To.TitleCase); // Convert room number to words and capitalize
+                    Console.WriteLine($"Room {roomNumberInWords}: {enemiesInRooms[i].GetName()}");
+                }
+            }
         }
         
     }
